@@ -8,6 +8,8 @@ import Image from "next/image"
 interface PropType {
   isSoundsModalOpen: boolean
   setIsSoundsModalOpen: (isOpen: boolean) => void
+  togglePlay: (id: number) => void
+  setVolume: (id: number, volume: number) => void
 }
 
 const SoundsModal: FC<PropType> = ({ isSoundsModalOpen, setIsSoundsModalOpen }) => {

@@ -50,7 +50,27 @@ export const soundsArr: SoundsArrType[] = [
   },
   {
     id: 2,
+    imgPath: "/images/sounds/birds_in_forest.png",
+    soundPath: "/sounds/birds_in_forest.mp3"
+  },
+  {
+    id: 3,
     imgPath: "/images/sounds/rain.jpg",
     soundPath: "/sounds/rain.mp3"
+  },
+  {
+    id: 4,
+    imgPath: "/images/sounds/wave.png",
+    soundPath: "/sounds/wave.mp3"
+  },
+  {
+    id: 5,
+    imgPath: "/images/sounds/thunder.png",
+    soundPath: "/sounds/thunder.mp3"
+  },
+  {
+    id: 6,
+    imgPath: "/images/sounds/birds_in_ocean.png",
+    soundPath: "/sounds/birds_in_ocean.mp3"
   },
 ]
