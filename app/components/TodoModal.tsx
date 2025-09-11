@@ -41,7 +41,18 @@ const TodoModal: FC<PropsType> = ({ isModalOpen, setIsModalOpen }) => {
   };
 
   const setEdit = (id: string): void => {
-    dispatch(todoActions.setEdit({ id, setInputVal, setEditingId, setIsEditing }));
+    const todo = todos.find(todo => todo.id === id)
+
+    if (!todo) return
+
+    if (todo.completed) {
+      console.log("Task is completed!");
+      return
+    }
+
+    setInputVal(todo.name)
+    setEditingId(todo.id)
+    setIsEditing(true)
   };
 
   const deleteTask = (id: string): void => {
