@@ -39,6 +39,22 @@ export const imgsPath: ImgPathType[] = [
   {
     src: "/images/bg/img4.webp",
     alt: "lofi-img"
+  },
+  {
+    src: "/images/bg/img5.jpg",
+    alt: "lofi-img"
+  },
+  {
+    src: "/images/bg/img6.jpg",
+    alt: "lofi-img"
+  },
+  {
+    src: "/images/bg/img7.jpg",
+    alt: "lofi-img"
+  },
+  {
+    src: "/images/bg/img8.png",
+    alt: "lofi-img"
   }
 ]
 
