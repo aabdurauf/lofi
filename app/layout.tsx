@@ -9,8 +9,8 @@ const ubuntu = Ubuntu({
 });
 
 export const metadata: Metadata = {
-  title: "LoFi",
-  description: "LoFi - Listen while coding and studying",
+  title: "lofi",
+  description: "lofi - Listen while coding and studying",
 };
 
 export default function RootLayout({

@@ -6,10 +6,6 @@
   box-sizing: border-box;
 }
 
-body {
-  overflow: hidden;
-}
-
 @layer utilities {
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
