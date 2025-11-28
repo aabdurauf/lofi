@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { forwardRef, useEffect, useRef, useState } from "react"
 import { GoPlay } from "react-icons/go";
 import { BsArrowRepeat } from "react-icons/bs";
 import { FaStop } from "react-icons/fa";
@@ -8,7 +8,7 @@ interface PropsType {
   isTimerOpen: boolean
 }
 
-const Timer: React.FC<PropsType> = ({ isTimerOpen }) => {
+const Timer = forwardRef<HTMLDivElement, PropsType>(({ isTimerOpen }, ref) => {
   const DEFAULT_TIME: number = 25 * 60;
 
   const audioRef = useRef<HTMLAudioElement>(null)
@@ -41,6 +41,7 @@ const Timer: React.FC<PropsType> = ({ isTimerOpen }) => {
     <AnimatePresence initial={false}>
       {isTimerOpen && (
         <motion.div
+          ref={ref}
           initial={{ x: 0, y: -30, rotate: 0, opacity: 0 }}
           animate={{ x: 0, y: 0, rotate: 0, opacity: 1 }}
           exit={{ x: 0, y: -30, rotate: 0, opacity: 0 }}
@@ -78,6 +79,6 @@ const Timer: React.FC<PropsType> = ({ isTimerOpen }) => {
       )}
     </AnimatePresence>
   )
-}
+})
 
 export default Timer

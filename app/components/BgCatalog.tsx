@@ -4,8 +4,8 @@ import { useAppDispatch } from "../lib/hooks";
 import { bgImgActions } from "../lib/features/bgImgSlice";
 import { IoCloseSharp } from "react-icons/io5";
 import { modalStyles } from "../styles/styles";
-import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
+import Image from "next/image";
 
 interface PropType {
   isBgCatalogOpen: boolean
@@ -17,6 +17,7 @@ const BgCatalog: FC<PropType> = ({ isBgCatalogOpen, setIsBgCatalogOpen }) => {
 
   const handleBgChange = (index: number) => {
     dispatch(bgImgActions.changeBg(index))
+    setIsBgCatalogOpen(false)
   }
 
   return (

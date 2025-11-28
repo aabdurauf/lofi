@@ -19,7 +19,7 @@ export default function ClientHome() {
     setIsModalOpen(modal === "todo")
     setIsBgCatalogOpen(modal === "bg")
     setIsSoundsModalOpen(modal === "sounds")
-    setIsTimerOpen(modal === "timer" ? !isTimerOpen : false)
+    setIsTimerOpen(modal === "timer")
   }
 
   return (
