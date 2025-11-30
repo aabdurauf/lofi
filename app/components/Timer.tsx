@@ -47,7 +47,7 @@ const Timer = forwardRef<HTMLDivElement, PropsType>(({ isTimerOpen }, ref) => {
           exit={{ x: 0, y: -30, rotate: 0, opacity: 0 }}
           className="absolute right-0 top-10 w-[100px] rounded-lg backdrop-blur-md bg-white/10 text-white py-3 px-4 flex flex-col items-center gap-3"
         >
-          <audio src="/sounds/timer-terminer.mp3" ref={audioRef} preload="true" className="hidden"></audio>
+          <audio src="/sounds/timer-terminer.mp3" ref={audioRef} preload="true" className="hidden" />
           <span>{formatTime(timeLeft)}</span>
           <div className="flex items-center gap-3">
             {isRunning ? (

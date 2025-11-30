@@ -1,23 +1,21 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { IoTimerOutline } from "react-icons/io5"
 import { LuNotebookPen } from "react-icons/lu";
 import { FaRegImage } from "react-icons/fa";
 import { SlSocialSoundcloud } from "react-icons/sl";
 import { duration } from "../styles/styles";
-import { BsArrowsFullscreen } from "react-icons/bs";
 import { Timer } from "./";
+import { LuFullscreen } from "react-icons/lu";
 
 interface PropType {
   setIsModalOpen: (isOpen: boolean) => void
   setIsBgCatalogOpen: (isOpen: boolean) => void
   setIsSoundsModalOpen: (isOpen: boolean) => void
-  setIsTimerOpen: (isOpen: boolean) => void
+  setIsTimerOpen: () => void
   isTimerOpen: boolean
 }
 
 const Navbar: React.FC<PropType> = ({ setIsModalOpen, setIsBgCatalogOpen, setIsTimerOpen, setIsSoundsModalOpen, isTimerOpen }) => {
-  const navRef = useRef<HTMLHeadElement | null>(null)
-
   const toggleFullScreen = () => {
     if (!document.fullscreenElement) {
       document.documentElement.requestFullscreen()
@@ -28,28 +26,10 @@ const Navbar: React.FC<PropType> = ({ setIsModalOpen, setIsBgCatalogOpen, setIsT
     }
   }
 
-  const clickHandler = (e: MouseEvent) => {
-    const target = e.target as Node
-
-    if (navRef.current && !navRef.current.contains(target)) {
-      setIsModalOpen(false)
-      setIsBgCatalogOpen(false)
-      setIsSoundsModalOpen(false)
-      setIsTimerOpen(false)
-    }
-  }
-
-  useEffect(() => {
-    document.addEventListener("click", clickHandler)
-    return () => {
-      document.removeEventListener("click", clickHandler)
-    }
-  }, [])
-
   return (
-    <header ref={navRef} className="w-full px-5 sm:p-0">
+    <header className="w-full px-5 sm:p-0">
       <nav className="container mx-auto py-5 flex gap-4">
-        <BsArrowsFullscreen
+        <LuFullscreen
           onClick={toggleFullScreen}
           className={`${duration} text-white hover:text-white/75 duration-300 text-xl cursor-pointer ml-auto`}
         />
@@ -67,7 +47,7 @@ const Navbar: React.FC<PropType> = ({ setIsModalOpen, setIsBgCatalogOpen, setIsT
         />
         <div className="relative">
           <IoTimerOutline
-            onClick={() => setIsTimerOpen(false)}
+            onClick={() => setIsTimerOpen()}
             className={`${duration} text-white hover:text-white/75 duration-300 text-2xl cursor-pointer`}
           />
           <Timer
