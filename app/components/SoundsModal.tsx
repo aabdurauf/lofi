@@ -1,6 +1,6 @@
 import React, { FC, useRef, useState } from "react"
 import { IoCloseSharp } from "react-icons/io5"
-import { modalStyles } from "../styles/styles"
+import { duration, modalStyles } from "../styles/styles"
 import { soundsArr } from "../constants"
 import { AnimatePresence, motion } from "motion/react"
 import Image from "next/image"
@@ -11,7 +11,7 @@ interface PropType {
 }
 
 const SoundsModal: FC<PropType> = ({ isSoundsModalOpen, setIsSoundsModalOpen }) => {
-  const [, setPlaying] = useState<{ [key: number]: boolean }>({});
+  const [playing, setPlaying] = useState<{ [key: number]: boolean }>({});
   const [, setVolume] = useState<{ [key: number]: number }>({});
   const audioRefs = useRef<{ [key: number]: HTMLAudioElement | null }>({});
 
@@ -64,7 +64,7 @@ const SoundsModal: FC<PropType> = ({ isSoundsModalOpen, setIsSoundsModalOpen }) 
                     width={500}
                     height={500}
                     loading="lazy"
-                    className="w-full h-full rounded-lg"
+                    className={`w-full h-full ${duration} ${playing[sound.id] ? "grayscale brightness-75" : ""}`}
                     src={sound.imgPath}
                     onClick={() => togglePlay(sound.id)}
                     alt="img"
@@ -74,7 +74,7 @@ const SoundsModal: FC<PropType> = ({ isSoundsModalOpen, setIsSoundsModalOpen }) 
                     min={0}
                     max={1}
                     step={0.01}
-                    className={`w-[80%] absolute bottom-10 cursor-pointer`}
+                    className={`input-range w-[80%] absolute bottom-10 cursor-pointer`}
                     onChange={(e) => {
                       const newVolume = parseFloat(e.target.value)
                       setVolume(prev => ({ ...prev, [sound.id]: newVolume }))

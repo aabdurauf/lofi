@@ -2,4 +2,4 @@ export const modalStyles: string = "relative z-10 overflow-x-hidden overflow-y-h
 
 export const soundIconsStyles: string = "cursor-pointer text-8xl text-white hover:text-white/75";
 
-export const duration: string = "duration-300";
+export const duration: string = "duration-300 transition-all";
